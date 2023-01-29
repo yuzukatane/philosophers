@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:01:53 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 16:06:09 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/29 16:36:13 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ bool	wait_before_start(t_philo *philo)
 	pthread_mutex_unlock(philo->ready_to_start);
 	if (philo->philo_id % 2 == 0)
 	{
-		philo->state = THINKING;
 		if (print_msg(philo, "is thinking") == false)
 			return (false);
 		usleep(500);

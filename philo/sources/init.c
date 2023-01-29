@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:57:28 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 15:59:22 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/29 16:37:08 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ void	init_philo(t_info *info, t_arg *arg)
 	while (i < info->num_philo)
 	{
 		info->philo[i].arg = arg;
+		info->philo[i].last_eat = 0;
 		info->philo[i].must_eat_num = arg->must_eat_num;
 		info->philo[i].total_meal_num = &info->total_meals;
 		info->philo[i].simulation_over = &info->simulation_over;
+		info->philo[i].state = THINKING;
 		info->philo[i].nb_philo_total = info->num_philo;
 		info->philo[i].philo_id = i + 1;
 		info->philo[i].start_time = &info->start_time;
