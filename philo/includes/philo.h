@@ -6,19 +6,12 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 12:30:43 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 14:04:40 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/29 16:40:19 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-
-///////
-// #define NUM_THREAD 2
-// #define TIME_TO_EAT 2000000
-// #define TIME_TO_SLEEP 2000000
-// #define TIME_TO_DIE 3000000
-/////////
 
 # include <stdio.h>
 # include <pthread.h>
