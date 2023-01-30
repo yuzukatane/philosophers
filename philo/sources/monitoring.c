@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:06:32 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 16:05:55 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/30 11:12:04 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	monitoring(t_info *info)
 {
 	int	i;
 
-	gettimeofday(&info->start_time, NULL);
 	pthread_mutex_unlock(&info->ready_to_start);
 	while (1)
 	{

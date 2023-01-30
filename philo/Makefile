@@ -10,7 +10,8 @@ SRCS = $(addprefix $(SRCS_DIR)/,	main.c			\
 									manage_forks.c	\
 									monitoring.c	\
 									check_args.c	\
-									print_msg.c)
+									print_msg.c		\
+									time.c)
 OBJS = $(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.c=.o))
 
 all: $(NAME)

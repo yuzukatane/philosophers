@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 12:31:42 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 15:59:36 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/30 11:12:18 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char *argv[])
 		pthread_create(&info.philo[i].thread_id, NULL, action, &info.philo[i]);
 		i++;
 	}
+	gettimeofday(&info.start_time, NULL);
 	monitoring(&info);
 	return (0);
 }

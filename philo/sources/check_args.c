@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:41:02 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 16:08:44 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/29 18:44:09 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool	check_args(int argc, char *argv[], t_arg *arg)
 		arg->must_eat_num = to_int(argv[5]);
 	else
 		arg->must_eat_num = NOT_EXIST;
-	if (arg->num_philo < 0 || 200 < arg->num_philo || arg->time_to_die < 0
+	if (arg->num_philo <= 0 || 200 < arg->num_philo || arg->time_to_die < 0
 		|| arg->time_to_eat < 0 || arg->time_to_sleep < 0
 		|| arg->must_eat_num == FAIL)
 		return (false);

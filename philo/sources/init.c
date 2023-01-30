@@ -6,20 +6,11 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:57:28 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 16:37:08 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/30 11:29:58 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-size_t	get_time(struct timeval start)
-{
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return (((time.tv_sec * 1000000 + time.tv_usec)
-			- (start.tv_sec * 1000000 + start.tv_usec)));
-}
 
 int	init_info(t_info *info, t_arg *arg)
 {
@@ -50,6 +41,14 @@ int	init_info(t_info *info, t_arg *arg)
 	return (true);
 }
 
+void	set_timing(t_philo *philo, t_arg *arg)
+{
+	philo->finish_eating_timing = arg->time_to_eat;
+	philo->finish_sleeping_timing = arg->time_to_eat + arg->time_to_sleep;
+	philo->finish_thinking_timing = arg->time_to_eat + arg->time_to_sleep
+		+ arg->time_to_think;
+}
+
 void	init_philo(t_info *info, t_arg *arg)
 {
 	int	i;
@@ -57,7 +56,7 @@ void	init_philo(t_info *info, t_arg *arg)
 	i = 0;
 	while (i < info->num_philo)
 	{
-		info->philo[i].arg = arg;
+		set_timing(&info->philo[i], arg);
 		info->philo[i].last_eat = 0;
 		info->philo[i].must_eat_num = arg->must_eat_num;
 		info->philo[i].total_meal_num = &info->total_meals;

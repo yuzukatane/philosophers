@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 12:30:43 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 16:40:19 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/30 11:33:38 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,18 @@ typedef struct s_philo
 	int				must_eat_num;
 	int				*total_meal_num;
 	struct timeval	*start_time;
+	size_t			current_time_us;
+	size_t			current_time_ms;
 	size_t			last_eat;
 	pthread_mutex_t	*mutex_print;
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*ready_to_start;
 	bool			*simulation_over;
-	t_arg			*arg;
+	int				finish_eating_timing;
+	int				finish_sleeping_timing;
+	int				finish_thinking_timing;
 	t_philo_state	state;
-
 }	t_philo;
 
 typedef struct s_info
@@ -92,6 +95,9 @@ bool		print_msg(t_philo *philo, char *msg);
 
 bool		take_forks(t_philo *philo);
 void		release_forks(t_philo *philo, t_wich_fork forks_to_release);
+
+void		update_time(t_philo *philo);
+void		sleep_until(t_philo *philo, size_t time_to_awake);
 
 void		monitoring(t_info *info);
 

@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:01:53 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/01/29 16:36:13 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/01/30 11:29:17 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	eating(t_philo *philo)
 	philo->state = EATING;
 	if (print_msg(philo, "is eating") == false)
 		return (false);
-	usleep(philo->arg->time_to_eat);
+	sleep_until(philo, philo->last_eat + philo->finish_eating_timing);
 	release_forks(philo, BOTH);
 	return (true);
 }
@@ -29,7 +29,7 @@ bool	sleeping(t_philo *philo)
 	philo->state = SLEEPING;
 	if (print_msg(philo, "is sleeping") == false)
 		return (false);
-	usleep(philo->arg->time_to_sleep);
+	sleep_until(philo, philo->last_eat + philo->finish_sleeping_timing);
 	return (true);
 }
 
@@ -38,7 +38,7 @@ bool	thinking(t_philo *philo)
 	philo->state = THINKING;
 	if (print_msg(philo, "is thinking") == false)
 		return (false);
-	usleep(philo->arg->time_to_think);
+	sleep_until(philo, philo->last_eat + philo->finish_thinking_timing);
 	return (true);
 }
 
