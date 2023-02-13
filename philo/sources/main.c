@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 12:31:42 by kyuzu             #+#    #+#             */
-/*   Updated: 2023/02/13 11:57:15 by kyuzu            ###   ########.fr       */
+/*   Updated: 2023/02/13 12:16:12 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ int	main(int argc, char *argv[])
 	monitoring(&info);
 	return (0);
 }
-//this is a comment
